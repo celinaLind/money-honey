@@ -67,7 +67,9 @@ Once an item within a batch is finished processing, the system can move on to an
 
 ![image](https://github.com/user-attachments/assets/18e06725-9fff-4800-9a90-6786104db237)
 
-2. Processing time for storing the initial data for stocks took well over an hour for roughly 9000 stocks.
+2. Processing time for storing the initial data for stocks took well over an hour for roughly 6000 stocks. (Stopped execution after URL error)
+  
+3. Initial run had around 3000 successful vectors stored with around 3000 unsuccessful vectors stored ==> Had to restart and rerun (only unsuccessful and not processed items were processed)
 
 
 ## Resources
@@ -83,6 +85,7 @@ Once an item within a batch is finished processing, the system can move on to an
 - [Free Worldwide News API](https://www.thenewsapi.com/)
 - [Understanding Metadata - Pinecone](https://docs.pinecone.io/guides/data/understanding-metadata)
 - [PineconeVectorStore](https://api.python.langchain.com/en/latest/pinecone/vectorstores/langchain_pinecone.vectorstores.PineconeVectorStore.html)
+- [Metadata Query Language](https://docs.pinecone.io/guides/data/understanding-metadata#metadata-query-language)
 
 # Future
 1. Market Firehose: Build a system that can handle 100 articles per minute. Your system should be able to process unstructured text articles and parse out the publisher, author, date, title, body, related sector. This should include an API and database schema. It must be a highly extensible system that can support articles from many different feeds, allows others to subscribe to the system to receive structured articles, and must operate as close to real time as possible while being able to handle processing hundreds of articles per minute.
