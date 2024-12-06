@@ -47,7 +47,20 @@ Research Automation: Build a system that can find relevant stocks based on natur
   ***Checking for Callability:*** <br>
 You can use the built-in callable() function to check if an object is callable.
 
+### Workers per Core
+- *Basic rule:* One worker per core. 
+- *Hyperthreading:* If your CPU supports hyperthreading, you could potentially have double the number of workers as each core can handle multiple threads simultaneously. 
+- *Workload intensity:* For lighter workloads, you may be able to get away with slightly more workers per core, but for heavy processing tasks, sticking closer to a 1:1 ratio is recommended. 
+
 ## Development Issues
+
+#### Adding Vectors To Pinecone
+1. While processing the stock and ticker information and storing the data into Pinecone, I ran into ["Input should be valid str"](https://docs.pydantic.dev/2.10/errors/validation_errors/#string_type) error for the PHYS stock (shown in image below). This caused the logs of "Successful *stockSymbol*" and errors to stop being printed onto colab console but the data was still being processed and stored into Pinecone. This happened due to YahooFinance not having data on PHYS stock and the code "Stopping execution" and exit program once an error is received. I updated the code that it would exit from the current executable since there was an error but would continue to log the rest of the batch processes.
+
+![image](https://github.com/user-attachments/assets/18e06725-9fff-4800-9a90-6786104db237)
+
+2. Processing time for storing the initial data for stocks took well over an hour for roughly 9000 stocks.
+
 
 ## Resources
 - [What is Quantitative Analysis?](https://www.investopedia.com/articles/investing/041114/simple-overview-quantitative-analysis.asp)
@@ -60,6 +73,7 @@ You can use the built-in callable() function to check if an object is callable.
 - [Accelerating LLM Operations with parallel-parot](https://bradito.me/blog/parallel-parrot/)
 - [Yahoo Finance API in Python](https://www.geeksforgeeks.org/get-financial-data-from-yahoo-finance-with-python/)
 - [Free Worldwide News API](https://www.thenewsapi.com/)
+- [Understanding Metadata - Pinecone](https://docs.pinecone.io/guides/data/understanding-metadata)
 
 # Future
 1. Market Firehose: Build a system that can handle 100 articles per minute. Your system should be able to process unstructured text articles and parse out the publisher, author, date, title, body, related sector. This should include an API and database schema. It must be a highly extensible system that can support articles from many different feeds, allows others to subscribe to the system to receive structured articles, and must operate as close to real time as possible while being able to handle processing hundreds of articles per minute.
