@@ -16,6 +16,36 @@ Research Automation: Build a system that can find relevant stocks based on natur
 - Google Colab
 
 ## Development Notes
+### [concurrent.futures](https://docs.python.org/3/library/concurrent.futures.html)
+*Python library that provides high-level interface for asynchronously executing callables*
+
+### Function vs Callable
+  ***In Python, the concepts of "function" and "callable" are closely related but not identical. Here's a breakdown of the difference:*** <br>
+  
+  **Function:**
+   - A function is a block of organized, reusable code that is used to perform a single, specific action.
+   - Functions are defined using the def keyword.
+   - They can take arguments (input values) and return values (output).
+   - Functions are a fundamental building block of Python programming.
+     
+  **Callable:** <br>
+   - A callable is any object that can be called or invoked like a function using the parentheses () notation.
+   - Functions are a type of callable, but not all callables are functions.
+   - Other examples of callables include:
+     - *Classes:* When you call a class, it creates a new instance (object) of that class.
+     - *Methods:* Methods are functions that are defined within a class.
+     - *Lambda functions:* Anonymous functions created using the lambda keyword.
+     - Objects with a __call__ method: Any object that defines a __call__ method can be treated as a callable.
+       
+  ***Key Differences:*** <br>
+  - Scope:<br>
+    Functions are a specific type of callable, whereas callables encompass a broader category of objects.
+  - Definition:<br>
+    Functions are defined using the def keyword, while callables can be created through various means (classes, methods, lambda functions, etc.).
+  - Purpose:<br>
+    Functions are primarily used for encapsulating code logic, while callables offer a more generic way to invoke objects that behave like functions. <br>
+  ***Checking for Callability:*** <br>
+You can use the built-in callable() function to check if an object is callable.
 
 ## Development Issues
 
