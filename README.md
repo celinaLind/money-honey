@@ -50,7 +50,15 @@ You can use the built-in callable() function to check if an object is callable.
 ### Workers per Core
 - *Basic rule:* One worker per core. 
 - *Hyperthreading:* If your CPU supports hyperthreading, you could potentially have double the number of workers as each core can handle multiple threads simultaneously. 
-- *Workload intensity:* For lighter workloads, you may be able to get away with slightly more workers per core, but for heavy processing tasks, sticking closer to a 1:1 ratio is recommended. 
+- *Workload intensity:* For lighter workloads, you may be able to get away with slightly more workers per core, but for heavy processing tasks, sticking closer to a 1:1 ratio is recommended.
+
+### Parallel batch processing:
+**Concurrent processing:** <br>
+Multiple items from different batches can be processed at the same time across multiple threads or processors. 
+**Chunk-based processing:** <br>
+Batches are often divided into smaller chunks, and each chunk can be processed independently, enabling parallel execution. 
+**No need to wait for full batch completion:** <br>
+Once an item within a batch is finished processing, the system can move on to an item from the next batch. 
 
 ## Development Issues
 
@@ -74,6 +82,7 @@ You can use the built-in callable() function to check if an object is callable.
 - [Yahoo Finance API in Python](https://www.geeksforgeeks.org/get-financial-data-from-yahoo-finance-with-python/)
 - [Free Worldwide News API](https://www.thenewsapi.com/)
 - [Understanding Metadata - Pinecone](https://docs.pinecone.io/guides/data/understanding-metadata)
+- [PineconeVectorStore](https://api.python.langchain.com/en/latest/pinecone/vectorstores/langchain_pinecone.vectorstores.PineconeVectorStore.html)
 
 # Future
 1. Market Firehose: Build a system that can handle 100 articles per minute. Your system should be able to process unstructured text articles and parse out the publisher, author, date, title, body, related sector. This should include an API and database schema. It must be a highly extensible system that can support articles from many different feeds, allows others to subscribe to the system to receive structured articles, and must operate as close to real time as possible while being able to handle processing hundreds of articles per minute.
