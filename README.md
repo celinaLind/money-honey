@@ -15,7 +15,7 @@ Research Automation: Build a system that can find relevant stocks based on natur
 - Pinecone
 - Google Colab
 
-## Development Notes
+## Development Notes (Research + workshops ~6 hours)
 ### [concurrent.futures](https://docs.python.org/3/library/concurrent.futures.html)
 *Python library that provides high-level interface for asynchronously executing callables*
 
@@ -62,16 +62,16 @@ Once an item within a batch is finished processing, the system can move on to an
 
 ## Development Issues
 
-#### Adding Vectors To Pinecone
-1. While processing the stock and ticker information and storing the data into Pinecone, I ran into ["Input should be valid str"](https://docs.pydantic.dev/2.10/errors/validation_errors/#string_type) error for the PHYS stock (shown in image below). This caused the logs of "Successful *stockSymbol*" and errors to stop being printed onto colab console but the data was still being processed and stored into Pinecone. This happened due to YahooFinance not having data on PHYS stock and the code "Stopping execution" and exit program once an error is received. I updated the code that it would exit from the current executable since there was an error but would continue to log the rest of the batch processes.
+#### Adding Vectors To Pinecone (> 8 hours)
+1. While processing the stock and ticker information and storing the data into Pinecone, I ran into ["Input should be valid str"](https://docs.pydantic.dev/2.10/errors/validation_errors/#string_type) error for the PHYS stock (shown in image below). This caused the logs of "Successful *stockSymbol*" and errors to stop being printed onto colab console but the data was still being processed and stored into Pinecone. This happened due to YahooFinance not having data on PHYS stock and the code "Stopping execution" and exit program once an error is received.
 
 ![image](https://github.com/user-attachments/assets/18e06725-9fff-4800-9a90-6786104db237)
 
 2. Processing time for storing the initial data for stocks took well over an hour for roughly 6000 stocks. (Stopped execution after URL error)
   
-3. Initial run had around 3000 successful vectors stored with around 3000 unsuccessful vectors stored ==> Had to restart and rerun (only unsuccessful and not processed items were processed)
+3. Initial run had around 3000 successful vectors stored with around 3000 unsuccessful vectors stored ==> Had to restart and rerun (only unsuccessful and unprocessed stocks were processed)
   
-4. Received following error message but it didn't affect the remaining processes, advised that as long as 9037 stocks process we can utilize the vectors effectively.
+4. Received following error message but it didn't affect the remaining processes, advised that as long as 9037 stocks process successfully we can utilize the vectors effectively.
 
    ERROR:yfinance:404 Client Error: Not Found for url:...
 
