@@ -62,7 +62,7 @@ Once an item within a batch is finished processing, the system can move on to an
 
 ## Development Issues
 
-#### Adding Vectors To Pinecone (> 8 hours)
+#### Adding Vectors To Pinecone (> 10 hours)
 1. While processing the stock and ticker information and storing the data into Pinecone, I ran into ["Input should be valid str"](https://docs.pydantic.dev/2.10/errors/validation_errors/#string_type) error for the PHYS stock (shown in image below). This caused the logs of "Successful *stockSymbol*" and errors to stop being printed onto colab console but the data was still being processed and stored into Pinecone. This happened due to YahooFinance not having data on PHYS stock and the code "Stopping execution" and exit program once an error is received.
 
 ![image](https://github.com/user-attachments/assets/18e06725-9fff-4800-9a90-6786104db237)
