@@ -73,7 +73,12 @@ Once an item within a batch is finished processing, the system can move on to an
   
 4. Received following error message but it didn't affect the remaining processes, advised that as long as 9037 stocks process we can utilize the vectors effectively.
 
-   ERROR:yfinance:404 Client Error: Not Found for url: https://query2.finance.yahoo.com/v10/finance/quoteSummary/FACT?modules=financialData%2CquoteType%2CdefaultKeyStatistics%2CassetProfile%2CsummaryDetail&corsDomain=finance.yahoo.com&formatted=false&symbol=FACT&crumb=IqIBjmVBhRW
+   ERROR:yfinance:404 Client Error: Not Found for url:...
+
+5. Received the following error during a rerun of processing the stocks from yahoo finance api. Had to decrease the number of max_workers from 10 to 3 to run without getting the error. <br>
+   Update: still received the error with 3 workers so decreased to 2
+
+   ERROR:yfinance:429 Client Error: Too Many Requests for url: ...
 
 
 ## Resources
