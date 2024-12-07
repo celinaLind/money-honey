@@ -70,6 +70,10 @@ Once an item within a batch is finished processing, the system can move on to an
 2. Processing time for storing the initial data for stocks took well over an hour for roughly 6000 stocks. (Stopped execution after URL error)
   
 3. Initial run had around 3000 successful vectors stored with around 3000 unsuccessful vectors stored ==> Had to restart and rerun (only unsuccessful and not processed items were processed)
+  
+4. Received following error message but it didn't affect the remaining processes, advised that as long as 9037 stocks process we can utilize the vectors effectively.
+
+   ERROR:yfinance:404 Client Error: Not Found for url: https://query2.finance.yahoo.com/v10/finance/quoteSummary/FACT?modules=financialData%2CquoteType%2CdefaultKeyStatistics%2CassetProfile%2CsummaryDetail&corsDomain=finance.yahoo.com&formatted=false&symbol=FACT&crumb=IqIBjmVBhRW
 
 
 ## Resources
