@@ -80,6 +80,8 @@ Once an item within a batch is finished processing, the system can move on to an
 
    ERROR:yfinance:429 Client Error: Too Many Requests for url: ...
 
+6. During a rerun colab had deleted my successful_tiker.txt file but before I noticed I had already ran the function to process the stocks into Pinecone this caused duplicate vectors to be added. Since this is a large database and the only solution I have found so far through my research is individual deletion based on vector ID, I restarted the processing of stocks into a new Pinecone stock index.
+
 
 ## Resources
 - [What is Quantitative Analysis?](https://www.investopedia.com/articles/investing/041114/simple-overview-quantitative-analysis.asp)
