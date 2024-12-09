@@ -15,7 +15,8 @@ Research Automation: Build a system that can find relevant stocks based on natur
 - Pinecone
 - Google Colab
 
-## Development Notes (Research + workshops ~6 hours)
+## Development Notes 
+(Research + workshops ~6 hours)
 ### [concurrent.futures](https://docs.python.org/3/library/concurrent.futures.html)
 *Python library that provides high-level interface for asynchronously executing callables*
 
@@ -81,6 +82,33 @@ Once an item within a batch is finished processing, the system can move on to an
    ERROR:yfinance:429 Client Error: Too Many Requests for url: ...
 
 6. During a rerun colab had deleted my successful_tiker.txt file but before I noticed I had already ran the function to process the stocks into Pinecone this caused duplicate vectors to be added. Since this is a large database and the only solution I have found so far through my research is individual deletion based on vector ID, I restarted the processing of stocks into a new Pinecone stock index.
+
+#### AI Chat Completion 
+When trying to use OpenAI with Groq, the error below was produced. Was advised by another resident to apply the groq chat completion code which appears below the error screenshot.
+![image](https://github.com/user-attachments/assets/e90d35d4-ea8d-44e6-ac5d-5e0af94ff3e8)
+
+  ```
+# Set it up like this:
+!pip install groq
+from groq import Groq
+client = Groq(
+    api_key=userdata.get("GROQ_API_KEY"),
+)
+
+# Replace the code under your system prompt with this:
+chat_completion = client.chat.completions.create(
+    model="llama-3.1-70b-versatile",
+    messages=[
+        {"role": "system", "content": system_prompt},
+        {"role": "user", "content": augmented_query}
+    ]
+)
+response = chat_completion.choices[0].message.content
+```
+
+#### Running Streamlit App Locally
+Received "AttributeError: 'NoneType' object has no attribute 'kernel'" as seen in image below.
+![image](https://github.com/user-attachments/assets/6d0ddf3c-1198-47f6-88de-050cc163aeee)
 
 
 ## Resources
